@@ -29,7 +29,7 @@ setup(name="rutter",
       description="Py3k-compatible fork of Paste's urlmap",
       long_description=README + '\n\n' +  CHANGES,
       classifiers=[
-        "Development Status :: 5 - Production/Stable",
+        "Development Status :: 4 - Beta",
         "Intended Audience :: Developers",
         "License :: OSI Approved :: MIT License",
         "Programming Language :: Python",
