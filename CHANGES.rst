@@ -1,8 +1,8 @@
 ``rutter`` Changelog
 ====================
 
-Unreleased
-----------
+0.2 (2013-10-21)
+----------------
 
 - Added Sphinx documentation.
 
