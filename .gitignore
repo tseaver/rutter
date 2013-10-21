@@ -4,3 +4,6 @@
 __pycache__
 .tox
 .coverage
+coverage.xml
+nosetests.xml
+dist
