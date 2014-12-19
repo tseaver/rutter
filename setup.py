@@ -25,7 +25,7 @@ except IOError:
     README = CHANGES = ''
 
 setup(name="rutter",
-      version='0.2',
+      version='0.3dev',
       description="Py3k-compatible fork of Paste's urlmap",
       long_description=README + '\n\n' +  CHANGES,
       classifiers=[
@@ -33,11 +33,13 @@ setup(name="rutter",
         "Intended Audience :: Developers",
         "License :: OSI Approved :: MIT License",
         "Programming Language :: Python",
+        "Programming Language :: Python :: 2",
         "Programming Language :: Python :: 2.6",
         "Programming Language :: Python :: 2.7",
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.2",
         "Programming Language :: Python :: 3.3",
+        "Programming Language :: Python :: 3.4",
         "Programming Language :: Python :: Implementation :: CPython",
         "Programming Language :: Python :: Implementation :: PyPy",
         "Topic :: Internet :: WWW/HTTP",
