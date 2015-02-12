@@ -3,7 +3,10 @@
 Forked from ``paste.urllib``.
 """
 import collections
-import cgi
+try:
+    from html import escape
+except ImportError:  # pragma: NO COVER Python2
+    from cgi import escape
 import re
 
 from webob.exc import HTTPNotFound
@@ -67,8 +70,7 @@ def _default_not_found_app(environ, start_response):
     extra += '\nPATH_INFO: %r' % environ.get('PATH_INFO')
     extra += '\nHTTP_HOST: %r' % environ.get('HTTP_HOST')
     # XXX WebOb?
-    exc = HTTPNotFound(environ['PATH_INFO'],
-                       comment=cgi.escape(extra))
+    exc = HTTPNotFound(environ['PATH_INFO'], comment=escape(extra, quote=False))
     return exc(environ, start_response)
 
 def _normalize_url(url, trim=True):
