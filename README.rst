@@ -1,7 +1,7 @@
 ``rutter``:  URL map for Py3k
 =============================
 
-.. image:: https://pypip.in/version/rutter/badge.svg?style=flat
+.. image:: https://img.shields.io/pypi/v/rutter.svg?style=flat
     :target: https://pypi.python.org/pypi/rutter/
     :alt: Latest Version
 
