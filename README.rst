@@ -15,4 +15,4 @@
 This project provides a version of the ``URLMap`` class from ``paste.urlmap``,
 ported to support Python3.  It also features 100% unit test coverage.
 
-Please see ``docs/index.rst`` for complete documentation
+Please see https://rutter.rtfd.io/ for complete documentation
