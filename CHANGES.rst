@@ -1,7 +1,7 @@
 ``rutter`` Changelog
 ====================
 
-0.3 (unreleased)
+0.3 (2020-08-10)
 ----------------
 
 - Add support for Python 3.5, 3.6, 3.7, and 3.8.
