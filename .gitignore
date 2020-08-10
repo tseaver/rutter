@@ -2,9 +2,10 @@
 *.pyo
 *.egg-info
 __pycache__
-.tox
 .coverage
 coverage.xml
 nosetests.xml
-dist
-docs/_build
+.tox/
+dist/
+docs/_build/
+build/
