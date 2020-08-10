@@ -25,7 +25,7 @@ except IOError:
     README = CHANGES = ''
 
 setup(name="rutter",
-      version='0.3',
+      version='0.4dev',
       description="Py3k-compatible fork of Paste's urlmap",
       long_description=README + '\n\n' +  CHANGES,
       classifiers=[
