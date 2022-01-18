@@ -2,7 +2,10 @@
 
 Forked from ``paste.urllib``.
 """
-import collections
+try:
+    from collections.abc import MutableMapping
+except ImportError:  # pragma: NO COVER Python2
+    from collections import MutableMapping
 try:
     from html import escape
 except ImportError:  # pragma: NO COVER Python2
@@ -103,7 +106,7 @@ def _normalize_url(url, trim=True):
     return domain, url
 
 
-class URLMap(collections.MutableMapping):
+class URLMap(MutableMapping):
     """Dispatch to one of several applications based on the URL.
 
     The dictionary keys are URLs to match (like

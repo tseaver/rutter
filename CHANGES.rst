@@ -4,7 +4,9 @@
 0.4 (unreleased)
 ----------------
 
-- TBD
+- Add support for Python 3.9.
+
+- Remove DeprecationWarning from using ``collections.abc``.
 
 0.3 (2020-08-10)
 ----------------
