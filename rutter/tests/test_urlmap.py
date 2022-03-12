@@ -1,4 +1,5 @@
 import unittest
+from webtest import TestApp
 
 
 class Test__parse_path_expression(unittest.TestCase):
@@ -334,8 +335,7 @@ class URLMapTests(unittest.TestCase):
     def test___call___w_empty(self):
         not_found = DummyApp()
         environ = _makeEnviron()
-        def _start_response(status, headers):
-            pass
+        def _start_response(status, headers): pass
         mapper = self._makeOne(not_found)
         result = mapper(environ, _start_response)
         self.assertTrue(result is not_found)
@@ -347,8 +347,7 @@ class URLMapTests(unittest.TestCase):
         not_found = DummyApp()
         never_called = DummyApp()
         environ = _makeEnviron(SERVER_NAME='otherdomain.com')
-        def _start_response(status, headers):
-            pass
+        def _start_response(status, headers): pass
         mapper = self._makeOne(not_found)
         mapper['http://otherdomain.com/'] = never_called
         result = mapper(environ, _start_response)
@@ -360,8 +359,7 @@ class URLMapTests(unittest.TestCase):
         called = DummyApp()
         environ = _makeEnviron(SERVER_NAME='Example.com')
         del environ['HTTP_HOST']
-        def _start_response(status, headers):
-            pass
+        def _start_response(status, headers): pass
         mapper = self._makeOne(not_found)
         mapper['http://example.com/'] = called
         result = mapper(environ, _start_response)
@@ -373,8 +371,7 @@ class URLMapTests(unittest.TestCase):
         never_called = DummyApp()
         environ = _makeEnviron()
         environ['HTTP_HOST'] = 'http://example.com:8080'
-        def _start_response(status, headers):
-            pass
+        def _start_response(status, headers): pass
         mapper = self._makeOne(not_found)
         mapper['http://example.com:8888'] = never_called
         result = mapper(environ, _start_response)
@@ -385,8 +382,7 @@ class URLMapTests(unittest.TestCase):
         not_found = DummyApp()
         never_called = DummyApp()
         environ = _makeEnviron()
-        def _start_response(status, headers):
-            pass
+        def _start_response(status, headers): pass
         mapper = self._makeOne(not_found)
         mapper['http://example.com:8888'] = never_called
         result = mapper(environ, _start_response)
@@ -399,8 +395,7 @@ class URLMapTests(unittest.TestCase):
         https = DummyApp()
         environ = _makeEnviron()
         environ['wsgi.url_scheme'] = 'https'
-        def _start_response(status, headers):
-            pass
+        def _start_response(status, headers): pass
         mapper = self._makeOne(not_found)
         mapper['http://example.com:80'] = never_called
         mapper['http://example.com:443'] = https
@@ -413,8 +408,7 @@ class URLMapTests(unittest.TestCase):
         shorter = DummyApp()
         longer = DummyApp()
         environ = _makeEnviron(PATH_INFO='/foobar')
-        def _start_response(status, headers):
-            pass
+        def _start_response(status, headers): pass
         mapper = self._makeOne(not_found)
         mapper['http://example.com:80/foo'] = shorter
         mapper['http://example.com:80/foobar'] = longer
@@ -429,8 +423,7 @@ class URLMapTests(unittest.TestCase):
         shorter = DummyApp()
         longer = DummyApp()
         environ = _makeEnviron(PATH_INFO='/foobar/baz')
-        def _start_response(status, headers):
-            pass
+        def _start_response(status, headers): pass
         mapper = self._makeOne(not_found)
         mapper['http://example.com:80/foo'] = shorter
         mapper['http://example.com:80/foobar'] = longer
@@ -512,22 +505,13 @@ def _makeEnviron(**kw):
     return environ
 
 
-class Functests: #(unittest.TestCase): OMIT FOR NOW
+class Functests(unittest.TestCase):
 
-    def _makeOne(self, extra_environ=None):
+    def _makeOne(self):
         from ..urlmap import URLMap
 
-        class _TestApp(object):
-
-            def __init__(self, wrapped, extra_environ=None):
-                self.wrapped = wrapped
-                self.extra_environ = extra_environ or {}
-
-            def get(self, url, params=None, status=None):
-                pass
-
-        mapper = URLMap({})
-        return mapper, _TestApp(mapper, extra_environ)
+        mapper = URLMap()
+        return mapper, TestApp(mapper)
 
     def test_map(self):
 
@@ -535,7 +519,7 @@ class Functests: #(unittest.TestCase): OMIT FOR NOW
             def app(environ, start_response):
                 headers = [('Content-type', 'text/html')]
                 start_response('200 OK', headers)
-                return [response_text % environ]
+                return [(response_text % environ).encode('utf8')]
             return app
 
         mapper, app = self._makeOne()
@@ -571,6 +555,6 @@ class Functests: #(unittest.TestCase): OMIT FOR NOW
     def test_404(self):
         mapper, app = self._makeOne()
         res = app.get("/-->%0D<script>alert('xss')</script>", status=404)
-        self.assertTrue('--><script' not in res.body)
+        self.assertTrue(b'--><script' not in res.body)
         res = app.get("/--%01><script>", status=404)
-        self.assertTrue('--\x01><script>' not in res.body)
+        self.assertTrue(b'--\x01><script>' not in res.body)

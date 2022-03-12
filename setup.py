@@ -55,16 +55,15 @@ setup(name="rutter",
       keywords='web application server wsgi',
       author="Tres Seaver",
       author_email="tseaver@palladion.com",
-      url="http://github.com/tseaver/rutter",
-      license="BSD-derived (http://www.repoze.org/LICENSE.txt)",
+      url="https://github.com/tseaver/rutter",
+      license="BSD-derived (Repoze)",
       packages=find_packages(),
       include_package_data=True,
       zip_safe=False,
       install_requires=['WebOb'],
       extras_require={
-        'testing': ['nose', 'coverage'],
+        'testing': ['pytest', 'pytest-cov', 'coverage', 'WebTest'],
       },
-      test_suite='rutter.tests',
       entry_points="""
       [paste.composite_factory]
       urlmap = rutter.urlmap:urlmap_factory
