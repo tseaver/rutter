@@ -4,9 +4,11 @@
 0.4 (unreleased)
 ----------------
 
-- Add support for Python 3.9.
+- Add support for Python 3.9, and 3.10.
 
 - Remove DeprecationWarning from using ``collections.abc``.
+
+- Move tests to GitHub actions.
 
 0.3 (2020-08-10)
 ----------------

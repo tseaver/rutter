@@ -5,8 +5,8 @@
     :target: https://pypi.python.org/pypi/rutter/
     :alt: Latest Version
 
-.. image:: https://travis-ci.org/tseaver/rutter.png?branch=master
-        :target: https://travis-ci.org/tseaver/rutter
+.. image:: https://github.com/tseaver/rutter/actions/workflows/ci-tests.yml/badge.svg?branch=master
+        :target: https://github.com/tseaver/rutter/actions/workflows/ci-tests.yml
 
 .. image:: https://readthedocs.org/projects/rutter/badge/?version=latest
         :target: https://rutter.readthedocs.org/en/latest/
