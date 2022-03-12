@@ -1,0 +1,14 @@
+[run]
+parallel = true
+source =
+    rutter
+
+[paths]
+source =
+    rutter
+    */rutter
+    */site-packages/rutter
+
+[report]
+show_missing = true
+precision = 2

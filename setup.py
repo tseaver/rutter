@@ -63,7 +63,7 @@ setup(name="rutter",
       zip_safe=False,
       install_requires=['WebOb'],
       extras_require={
-        'testing': ['pytest', 'pytest-cov', 'coverage'],
+        'testing': ['pytest', 'pytest-cov', 'coverage', 'WebTest'],
       },
       entry_points="""
       [paste.composite_factory]
