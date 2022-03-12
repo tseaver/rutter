@@ -1,7 +1,7 @@
 ``rutter`` Changelog
 ====================
 
-0.4 (unreleased)
+0.4 (2022-03-12)
 ----------------
 
 - Add support for Python 3.9, and 3.10.
@@ -9,6 +9,8 @@
 - Remove DeprecationWarning from using ``collections.abc``.
 
 - Move tests to GitHub actions.
+
+- Move test suite to py.test.
 
 0.3 (2020-08-10)
 ----------------
