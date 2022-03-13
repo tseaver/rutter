@@ -16,18 +16,16 @@ import os
 from setuptools import setup, find_packages
 
 here = os.path.abspath(os.path.dirname(__file__))
-try:
-    with open(os.path.join(here, 'README.rst')) as f:
-        README = f.read()
-    with open(os.path.join(here, 'CHANGES.rst')) as f:
-        CHANGES = f.read()
-except IOError:
-    README = CHANGES = ''
+with open(os.path.join(here, 'README.rst')) as f:
+    README = f.read()
+with open(os.path.join(here, 'CHANGES.rst')) as f:
+    CHANGES = f.read()
 
 setup(name="rutter",
       version='0.4',
       description="Py3k-compatible fork of Paste's urlmap",
       long_description=README + '\n\n' +  CHANGES,
+      long_description_content_type='text/x-rst',
       classifiers=[
         "Development Status :: 4 - Beta",
         "Intended Audience :: Developers",

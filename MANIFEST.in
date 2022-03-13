@@ -1,0 +1,15 @@
+graft rutter
+graft docs
+graft .github
+
+include README.rst
+include CHANGES.rst
+include LICENSE.txt
+include CONTRIBUTORS.txt
+include COPYRIGHT.txt
+
+include setup.cfg pyproject.toml
+include .coveragerc
+include tox.ini
+
+recursive-exclude * __pycache__ *.py[cod]
