@@ -1,7 +1,7 @@
 ``rutter`` Changelog
 ====================
 
-1.0b1 (unreleased)
+1.0b1 (2023-01-18)
 ------------------
 
 - Add support for Python 3.11.

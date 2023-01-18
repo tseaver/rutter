@@ -22,7 +22,7 @@ with open(os.path.join(here, 'CHANGES.rst')) as f:
     CHANGES = f.read()
 
 setup(name="rutter",
-      version='1.0dev0',
+      version='1.0b1',
       description="Py3k-compatible fork of Paste's urlmap",
       long_description=README + '\n\n' +  CHANGES,
       long_description_content_type='text/x-rst',
