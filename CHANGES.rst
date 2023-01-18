@@ -1,6 +1,13 @@
 ``rutter`` Changelog
 ====================
 
+1.0b1 (unreleased)
+------------------
+
+- Add support for Python 3.11.
+
+- Drop support for Python 2.7, 3.5, and 3.6.
+
 0.4 (2022-03-12)
 ----------------
 
